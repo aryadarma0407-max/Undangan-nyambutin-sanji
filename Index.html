@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3 Bulanan Kadek Sanji Arya Abisatya</title>
+<style>
+  :root{--bg:#f7f2e8;--card:#ffffff;--accent:#25D366;--muted:#666;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#222}
+  .wrap{max-width:800px;margin:0 auto;padding:20px}
+  .card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,0.08);text-align:center}
+  h1{font-size:20px;margin:6px 0}
+  h2{font-size:18px;margin:6px 0;color:var(--muted)}
+  .photo{margin-top:12px}
+  .photo img{width:92%;max-width:420px;border-radius:12px;display:block;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+  .info{margin-top:14px;font-size:16px;line-height:1.5;color:#333}
+  .btns{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+  .wa{background:var(--accent);color:#fff}
+  .play{background:#222;color:#fff}
+  .small{font-size:13px;color:var(--muted);margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Upacara 3 Bulanan</h1>
+    <h2>Kadek Sanji Arya Abisatya</h2>
+
+    <div class="photo">
+      <img src="baby.jpg" alt="Foto Kadek Sanji Arya Abisatya">
+    </div>
+
+    <div class="info">
+      <p><strong>Tanggal:</strong> 30 November 2025</p>
+      <p><strong>Lokasi:</strong><br>Jalan Jalak Putih Gang 1 No.17, Pendem, Jembrana, Bali</p>
+      <p><strong>Pengundang:</strong><br>I Gede Arya Darma</p>
+    </div>
+
+    <div class="btns">
+      <button id="playBtn" class="btn play" type="button">Play Musik</button>
+
+      <a id="waBtn" class="btn wa" href="https://wa.me/?text=Halo%2C%20saya%20mengundang%20ke%20acara%203%20Bulanan%20Kadek%20Sanji%20Arya%20Abisatya.%20Silakan%20buka%20link%20undangan%20ini%20:%20https://USERNAME.github.io/REPO/" target="_blank">
+        Bagikan via WhatsApp
+      </a>
+    </div>
+
+    <p class="small">Letakkan file <code>index.html</code>, <code>baby.jpg</code>, dan <code>musik.mp4</code> di folder utama repository.</p>
+  </div>
+</div>
+
+<video id="bgVideo" loop playsinline style="display:none">
+  <source src="musik.mp4" type="video/mp4">
+</video>
+
+<script>
+  const video = document.getElementById('bgVideo');
+  const btn = document.getElementById('playBtn');
+
+  function tryAutoplay() {
+    const p = video.play();
+    if (p !== undefined) {
+      p.then(()=> { btn.textContent = 'Pause Musik'; })
+       .catch(()=> { btn.textContent = 'Play Musik'; });
+    }
+  }
+
+  btn.addEventListener('click', function(){
+    if (video.paused) {
+      video.play().then(()=> { btn.textContent = 'Pause Musik'; });
+    } else {
+      video.pause();
+      btn.textContent = 'Play Musik';
+    }
+  });
+
+  window.addEventListener('load', tryAutoplay);
+</script>
+</body>
+</html>
